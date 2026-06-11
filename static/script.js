@@ -24,7 +24,9 @@ const CARD_STATS = {
 const FLAGS = {
     'Brasil': '🇧🇷', 'França': '🇫🇷', 'Espanha': '🇪🇸', 'Noruega': '🇳🇴',
     'Bélgica': '🇧🇪', 'Holanda': '🇳🇱', 'Alemanha': '🇩🇪',
-    'Inglaterra': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Croácia': '🇭🇷', 'Portugal': '🇵🇹'
+    'Inglaterra': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Croácia': '🇭🇷', 'Portugal': '🇵🇹',
+    'Egito': '🇪🇬', 'Polônia': '🇵🇱', 'Nigéria': '🇳🇬',
+    'Eslovênia': '🇸🇮', 'Canadá': '🇨🇦'
 };
 
 let allPlayers = [];

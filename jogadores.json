@@ -48,6 +48,54 @@
     "fisico": 88
   },
   {
+    "nome": "Salah",
+    "posicao": "Atacante",
+    "nacionalidade": "Egito",
+    "idade": 32,
+    "velocidade": 87,
+    "chute": 89,
+    "passe": 81,
+    "drible": 87,
+    "defesa": 45,
+    "fisico": 77
+  },
+  {
+    "nome": "Neymar",
+    "posicao": "Atacante",
+    "nacionalidade": "Brasil",
+    "idade": 33,
+    "velocidade": 85,
+    "chute": 83,
+    "passe": 86,
+    "drible": 93,
+    "defesa": 32,
+    "fisico": 65
+  },
+  {
+    "nome": "Lewandowski",
+    "posicao": "Atacante",
+    "nacionalidade": "Polônia",
+    "idade": 36,
+    "velocidade": 76,
+    "chute": 91,
+    "passe": 79,
+    "drible": 79,
+    "defesa": 44,
+    "fisico": 82
+  },
+  {
+    "nome": "Osimhen",
+    "posicao": "Atacante",
+    "nacionalidade": "Nigéria",
+    "idade": 26,
+    "velocidade": 90,
+    "chute": 87,
+    "passe": 70,
+    "drible": 78,
+    "defesa": 38,
+    "fisico": 85
+  },
+  {
     "nome": "Alisson",
     "posicao": "Goleiro",
     "nacionalidade": "Brasil",
@@ -84,6 +132,30 @@
     "velocidade": 58
   },
   {
+    "nome": "Ter Stegen",
+    "posicao": "Goleiro",
+    "nacionalidade": "Alemanha",
+    "idade": 32,
+    "elasticidade": 87,
+    "manejo": 88,
+    "chute": 80,
+    "reflexo": 89,
+    "posicionamento": 87,
+    "velocidade": 56
+  },
+  {
+    "nome": "Oblak",
+    "posicao": "Goleiro",
+    "nacionalidade": "Eslovênia",
+    "idade": 31,
+    "elasticidade": 90,
+    "manejo": 85,
+    "chute": 68,
+    "reflexo": 90,
+    "posicionamento": 91,
+    "velocidade": 50
+  },
+  {
     "nome": "Militão",
     "posicao": "Zagueiro",
     "nacionalidade": "Brasil",
@@ -117,6 +189,28 @@
     "passe": 70
   },
   {
+    "nome": "Marquinhos",
+    "posicao": "Zagueiro",
+    "nacionalidade": "Brasil",
+    "idade": 30,
+    "marcacao": 88,
+    "forca": 82,
+    "cabeceio": 85,
+    "velocidade": 78,
+    "passe": 80
+  },
+  {
+    "nome": "Dias",
+    "posicao": "Zagueiro",
+    "nacionalidade": "Portugal",
+    "idade": 27,
+    "marcacao": 87,
+    "forca": 85,
+    "cabeceio": 84,
+    "velocidade": 77,
+    "passe": 76
+  },
+  {
     "nome": "Theo Hernández",
     "posicao": "Lateral",
     "nacionalidade": "França",
@@ -133,6 +227,24 @@
     "velocidade": 84,
     "cruzamento": 87,
     "marcacao": 82
+  },
+  {
+    "nome": "Trent Alexander-Arnold",
+    "posicao": "Lateral",
+    "nacionalidade": "Inglaterra",
+    "idade": 26,
+    "velocidade": 82,
+    "cruzamento": 91,
+    "marcacao": 75
+  },
+  {
+    "nome": "Alphonso Davies",
+    "posicao": "Lateral",
+    "nacionalidade": "Canadá",
+    "idade": 24,
+    "velocidade": 96,
+    "cruzamento": 82,
+    "marcacao": 76
   },
   {
     "nome": "Bellingham",
@@ -160,5 +272,32 @@
     "passe": 88,
     "visao": 89,
     "resistencia": 84
+  },
+  {
+    "nome": "De Bruyne",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Bélgica",
+    "idade": 33,
+    "passe": 93,
+    "visao": 94,
+    "resistencia": 82
+  },
+  {
+    "nome": "Rodri",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Espanha",
+    "idade": 28,
+    "passe": 87,
+    "visao": 89,
+    "resistencia": 92
+  },
+  {
+    "nome": "Kroos",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Alemanha",
+    "idade": 34,
+    "passe": 94,
+    "visao": 93,
+    "resistencia": 79
   }
 ]
