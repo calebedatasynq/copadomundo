@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg:          #0d1117;
+    --bg-card:     #161b22;
+    --bg-panel:    #1a2030;
+    --gold:        #f0c040;
+    --gold-dark:   #c8a020;
+    --text:        #e6edf3;
+    --text-muted:  #8b949e;
+    --border:      #30363d;
+    --danger:      #f85149;
+
+    --atk-a: #b8860b;
+    --atk-b: #ffd700;
+    --gol-a: #1b5e20;
+    --gol-b: #66bb6a;
+    --zag-a: #0d47a1;
+    --zag-b: #42a5f5;
+    --lat-a: #006064;
+    --lat-b: #26c6da;
+    --mei-a: #4a148c;
+    --mei-b: #ab47bc;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2030 100%);
+    border-bottom: 2px solid var(--gold);
+    padding: 14px 32px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header-icon {
+    font-size: 32px;
+}
+
+header h1 {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.header-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 2px;
+}
+
+/* ── Layout principal ── */
+main {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    padding: 24px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── Pool de jogadores ── */
+.pool-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pool-header h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    color: #000;
+    border-color: transparent;
+}
+
+.filter-btn[data-pos="all"].active,
+.filter-btn[data-pos="all"]:hover { background: var(--gold); }
+.filter-btn.pos-Atacante.active,
+.filter-btn.pos-Atacante:hover { background: var(--atk-b); }
+.filter-btn.pos-Meiocampo.active,
+.filter-btn.pos-Meiocampo:hover { background: var(--mei-b); }
+.filter-btn.pos-Lateral.active,
+.filter-btn.pos-Lateral:hover { background: var(--lat-b); }
+.filter-btn.pos-Zagueiro.active,
+.filter-btn.pos-Zagueiro:hover { background: var(--zag-b); }
+.filter-btn.pos-Goleiro.active,
+.filter-btn.pos-Goleiro:hover { background: var(--gol-b); }
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.loading {
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 40px;
+}
+
+/* ── Card do jogador ── */
+.player-card {
+    width: 140px;
+    border-radius: 12px;
+    padding: 14px 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    position: relative;
+    user-select: none;
+    color: rgba(0,0,0,0.88);
+}
+
+.player-card:hover {
+    transform: translateY(-6px) scale(1.04);
+}
+
+.player-card.in-team {
+    cursor: default;
+}
+
+.player-card.in-team::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 120, 0, 0.72);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    color: #fff;
+    pointer-events: none;
+}
+
+/* gradientes por posição */
+.card-Atacante  { background: linear-gradient(150deg, var(--atk-a), var(--atk-b)); box-shadow: 0 4px 16px rgba(255,215,0,.25); }
+.card-Goleiro   { background: linear-gradient(150deg, var(--gol-a), var(--gol-b)); box-shadow: 0 4px 16px rgba(102,187,106,.25); }
+.card-Zagueiro  { background: linear-gradient(150deg, var(--zag-a), var(--zag-b)); box-shadow: 0 4px 16px rgba(66,165,245,.25); }
+.card-Lateral   { background: linear-gradient(150deg, var(--lat-a), var(--lat-b)); box-shadow: 0 4px 16px rgba(38,198,218,.25); }
+.card-Meiocampo { background: linear-gradient(150deg, var(--mei-a), var(--mei-b)); box-shadow: 0 4px 16px rgba(171,71,188,.25); }
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.card-overall {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.card-pos {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: .75;
+    margin-top: 2px;
+}
+
+.card-nationality {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: .7;
+    text-align: right;
+}
+
+.card-divider {
+    height: 1px;
+    background: rgba(0,0,0,.2);
+    margin: 7px 0;
+}
+
+.card-name {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
+.card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 4px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    font-size: 10px;
+}
+
+.stat-label { font-weight: 700; opacity: .6; letter-spacing: .5px; }
+.stat-value { font-weight: 900; }
+
+.card-age {
+    font-size: 10px;
+    opacity: .6;
+    margin-top: 7px;
+    text-align: center;
+}
+
+/* ── Team builder ── */
+.team-builder {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    position: sticky;
+    top: 24px;
+    height: fit-content;
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.team-header h2 {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.player-count {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.team-list {
+    min-height: 180px;
+    max-height: 380px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    padding-right: 2px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.empty-team {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 50px 16px;
+    line-height: 1.6;
+}
+
+.team-player {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border-left: 3px solid var(--gold);
+    animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.team-player-badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #000;
+    letter-spacing: .5px;
+    flex-shrink: 0;
+}
+
+.badge-Atacante  { background: var(--atk-b); }
+.badge-Goleiro   { background: var(--gol-b); }
+.badge-Zagueiro  { background: var(--zag-b); }
+.badge-Lateral   { background: var(--lat-b); }
+.badge-Meiocampo { background: var(--mei-b); }
+
+.team-player-info { flex: 1; min-width: 0; }
+
+.team-player-name {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.team-player-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.team-player-overall {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0 2px;
+    border-radius: 4px;
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+
+.remove-btn:hover { background: rgba(248,81,73,.15); }
+
+/* ── Botão calcular ── */
+.calc-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity .2s, transform .15s;
+    margin-bottom: 20px;
+}
+
+.calc-btn:hover  { opacity: .88; transform: translateY(-1px); }
+.calc-btn:active { transform: translateY(0); }
+
+/* ── Overall display ── */
+.overall-display {
+    display: none;
+    text-align: center;
+    animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.overall-ring {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 14px;
+}
+
+.overall-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.ring-bg   { fill: none; stroke: var(--border); stroke-width: 8; }
+
+.ring-fill {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 264;
+    stroke-dashoffset: 264;
+    transition: stroke-dashoffset 1s ease, stroke 0.5s ease;
+}
+
+.overall-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overall-number {
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.overall-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.overall-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "nome": "Vinicius Jr",
+    "posicao": "Atacante",
+    "nacionalidade": "Brasil",
+    "idade": 24,
+    "velocidade": 95,
+    "chute": 87,
+    "passe": 80,
+    "drible": 92,
+    "defesa": 30,
+    "fisico": 75
+  },
+  {
+    "nome": "Mbappé",
+    "posicao": "Atacante",
+    "nacionalidade": "França",
+    "idade": 27,
+    "velocidade": 97,
+    "chute": 90,
+    "passe": 82,
+    "drible": 90,
+    "defesa": 36,
+    "fisico": 78
+  },
+  {
+    "nome": "Lamine Yamal",
+    "posicao": "Atacante",
+    "nacionalidade": "Espanha",
+    "idade": 18,
+    "velocidade": 91,
+    "chute": 82,
+    "passe": 83,
+    "drible": 89,
+    "defesa": 28,
+    "fisico": 63
+  },
+  {
+    "nome": "Haaland",
+    "posicao": "Atacante",
+    "nacionalidade": "Noruega",
+    "idade": 24,
+    "velocidade": 89,
+    "chute": 94,
+    "passe": 73,
+    "drible": 80,
+    "defesa": 45,
+    "fisico": 88
+  },
+  {
+    "nome": "Alisson",
+    "posicao": "Goleiro",
+    "nacionalidade": "Brasil",
+    "idade": 31,
+    "elasticidade": 88,
+    "manejo": 87,
+    "chute": 75,
+    "reflexo": 90,
+    "posicionamento": 91,
+    "velocidade": 55
+  },
+  {
+    "nome": "Courtois",
+    "posicao": "Goleiro",
+    "nacionalidade": "Bélgica",
+    "idade": 32,
+    "elasticidade": 91,
+    "manejo": 89,
+    "chute": 70,
+    "reflexo": 92,
+    "posicionamento": 90,
+    "velocidade": 52
+  },
+  {
+    "nome": "Ederson",
+    "posicao": "Goleiro",
+    "nacionalidade": "Brasil",
+    "idade": 30,
+    "elasticidade": 85,
+    "manejo": 90,
+    "chute": 85,
+    "reflexo": 87,
+    "posicionamento": 88,
+    "velocidade": 58
+  },
+  {
+    "nome": "Militão",
+    "posicao": "Zagueiro",
+    "nacionalidade": "Brasil",
+    "idade": 26,
+    "marcacao": 87,
+    "forca": 85,
+    "cabeceio": 82,
+    "velocidade": 80,
+    "passe": 72
+  },
+  {
+    "nome": "Van Dijk",
+    "posicao": "Zagueiro",
+    "nacionalidade": "Holanda",
+    "idade": 33,
+    "marcacao": 90,
+    "forca": 90,
+    "cabeceio": 88,
+    "velocidade": 78,
+    "passe": 77
+  },
+  {
+    "nome": "Rüdiger",
+    "posicao": "Zagueiro",
+    "nacionalidade": "Alemanha",
+    "idade": 31,
+    "marcacao": 88,
+    "forca": 87,
+    "cabeceio": 85,
+    "velocidade": 84,
+    "passe": 70
+  },
+  {
+    "nome": "Theo Hernández",
+    "posicao": "Lateral",
+    "nacionalidade": "França",
+    "idade": 27,
+    "velocidade": 90,
+    "cruzamento": 83,
+    "marcacao": 78
+  },
+  {
+    "nome": "Cancelo",
+    "posicao": "Lateral",
+    "nacionalidade": "Portugal",
+    "idade": 30,
+    "velocidade": 84,
+    "cruzamento": 87,
+    "marcacao": 82
+  },
+  {
+    "nome": "Bellingham",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Inglaterra",
+    "idade": 21,
+    "passe": 87,
+    "visao": 90,
+    "resistencia": 86
+  },
+  {
+    "nome": "Modric",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Croácia",
+    "idade": 39,
+    "passe": 91,
+    "visao": 94,
+    "resistencia": 80
+  },
+  {
+    "nome": "Pedri",
+    "posicao": "Meiocampo",
+    "nacionalidade": "Espanha",
+    "idade": 22,
+    "passe": 88,
+    "visao": 89,
+    "resistencia": 84
+  }
+]

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa Card Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="header-icon">⚽</span>
+            <div>
+                <h1>Copa Card Manager</h1>
+                <span class="header-subtitle">Monte seu time dos sonhos</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Painel esquerdo: pool de jogadores -->
+        <section class="player-pool">
+            <div class="pool-header">
+                <h2>Jogadores Disponíveis</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-pos="all">Todos</button>
+                    <button class="filter-btn pos-Atacante" data-pos="Atacante">ATK</button>
+                    <button class="filter-btn pos-Meiocampo" data-pos="Meiocampo">MEI</button>
+                    <button class="filter-btn pos-Lateral" data-pos="Lateral">LAT</button>
+                    <button class="filter-btn pos-Zagueiro" data-pos="Zagueiro">ZAG</button>
+                    <button class="filter-btn pos-Goleiro" data-pos="Goleiro">GOL</button>
+                </div>
+            </div>
+            <div class="cards-grid" id="cards-grid">
+                <div class="loading">Carregando jogadores...</div>
+            </div>
+        </section>
+
+        <!-- Painel direito: montador de time -->
+        <aside class="team-builder">
+            <div class="team-header">
+                <h2>Meu Time</h2>
+                <span class="player-count" id="player-count">0 / 11</span>
+            </div>
+
+            <div class="team-list" id="team-list">
+                <p class="empty-team">Clique em um card para adicionar ao time</p>
+            </div>
+
+            <div class="overall-section">
+                <button class="calc-btn" id="calc-btn">⚡ Calcular Overall do Time</button>
+
+                <div class="overall-display" id="overall-display">
+                    <div class="overall-ring">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="42" class="ring-bg"/>
+                            <circle cx="50" cy="50" r="42" class="ring-fill" id="ring-fill"/>
+                        </svg>
+                        <div class="overall-text">
+                            <span class="overall-number" id="overall-number">0</span>
+                            <span class="overall-label">OVERALL</span>
+                        </div>
+                    </div>
+                    <p class="overall-desc" id="overall-desc"></p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
