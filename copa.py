@@ -161,3 +161,32 @@ class JogadorFactory:
     def carregar_json(cls, caminho: str) -> list[Jogador]:
         with open(caminho, encoding='utf-8') as f:
             return [cls.criar(d) for d in json.load(f)]
+
+
+def montar_selecao_automatica(jogadores: list, formacao: dict = None) -> Time:
+    """Monta o melhor time possível em formação 4-3-3 (ou formação customizada)."""
+    if formacao is None:
+        formacao = {
+            'Goleiro':   1,
+            'Zagueiro':  2,
+            'Lateral':   2,
+            'Meiocampo': 3,
+            'Atacante':  3,
+        }
+
+    por_posicao: dict[str, list] = {}
+    for j in jogadores:
+        pos = type(j).__name__
+        por_posicao.setdefault(pos, []).append(j)
+
+    time = Time("Seleção Automática")
+    for pos, qtd in formacao.items():
+        melhores = sorted(
+            por_posicao.get(pos, []),
+            key=lambda j: j.calcular_overall(),
+            reverse=True
+        )
+        for j in melhores[:qtd]:
+            time.adicionar(j)
+
+    return time

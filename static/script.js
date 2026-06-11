@@ -209,6 +209,17 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // ── Botão calcular ──
 document.getElementById('calc-btn').addEventListener('click', calcularTime);
 
+// ── Botão auto-montar ──
+document.getElementById('auto-btn').addEventListener('click', async () => {
+    const res = await fetch('/api/time/automatico');
+    const data = await res.json();
+
+    teamPlayers = data.jogadores;
+    updateTeamUI();
+    renderCards(filteredPlayers());
+    showOverall(data.overall);
+});
+
 // ── Carregar jogadores da API ──
 fetch('/api/jogadores')
     .then(r => r.json())

@@ -376,6 +376,26 @@ main {
 
 .remove-btn:hover { background: rgba(248,81,73,.15); }
 
+/* ── Botão auto-montar ── */
+.auto-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1a3a6a, #2563eb);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity .2s, transform .15s;
+    margin-bottom: 10px;
+}
+
+.auto-btn:hover  { opacity: .88; transform: translateY(-1px); }
+.auto-btn:active { transform: translateY(0); }
+
 /* ── Botão calcular ── */
 .calc-btn {
     width: 100%;
