@@ -12,23 +12,33 @@
             <span class="header-icon">⚽</span>
             <div>
                 <h1>Copa Card Manager</h1>
-                <span class="header-subtitle">Monte seu time dos sonhos</span>
+                <span class="header-subtitle">FIFA World Cup 2026 · 1248 jogadores</span>
             </div>
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="montar">🏟️ Montar Time</button>
+                <button class="tab-btn" data-tab="selecoes">🌍 Seleções</button>
+                <button class="tab-btn" data-tab="comparar">⚖️ Comparar</button>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <!-- Painel esquerdo: pool de jogadores -->
+    <!-- ══════════════ ABA: MONTAR TIME ══════════════ -->
+    <main id="tab-montar" class="tab-content active">
         <section class="player-pool">
             <div class="pool-header">
                 <h2>Jogadores Disponíveis</h2>
                 <div class="filters">
                     <button class="filter-btn active" data-pos="all">Todos</button>
-                    <button class="filter-btn pos-Atacante" data-pos="Atacante">ATK</button>
+                    <button class="filter-btn pos-Atacante"  data-pos="Atacante">ATK</button>
                     <button class="filter-btn pos-Meiocampo" data-pos="Meiocampo">MEI</button>
-                    <button class="filter-btn pos-Lateral" data-pos="Lateral">LAT</button>
-                    <button class="filter-btn pos-Zagueiro" data-pos="Zagueiro">ZAG</button>
-                    <button class="filter-btn pos-Goleiro" data-pos="Goleiro">GOL</button>
+                    <button class="filter-btn pos-Lateral"   data-pos="Lateral">LAT</button>
+                    <button class="filter-btn pos-Zagueiro"  data-pos="Zagueiro">ZAG</button>
+                    <button class="filter-btn pos-Goleiro"   data-pos="Goleiro">GOL</button>
+                </div>
+                <div class="country-filter-wrap">
+                    <input type="text" id="country-search" placeholder="🌍 Filtrar por país..." class="country-input" autocomplete="off">
+                    <div class="country-dropdown" id="country-dropdown"></div>
+                    <button class="country-clear" id="country-clear" style="display:none">✕</button>
                 </div>
             </div>
             <div class="cards-grid" id="cards-grid">
@@ -36,21 +46,17 @@
             </div>
         </section>
 
-        <!-- Painel direito: montador de time -->
         <aside class="team-builder">
             <div class="team-header">
                 <h2>Meu Time</h2>
                 <span class="player-count" id="player-count">0 / 11</span>
             </div>
-
             <div class="team-list" id="team-list">
                 <p class="empty-team">Clique em um card para adicionar ao time</p>
             </div>
-
             <div class="overall-section">
                 <button class="auto-btn" id="auto-btn">🤖 Montar Melhor Time</button>
-                <button class="calc-btn" id="calc-btn">⚡ Calcular Overall do Time</button>
-
+                <button class="calc-btn" id="calc-btn">⚡ Calcular Overall</button>
                 <div class="overall-display" id="overall-display">
                     <div class="overall-ring">
                         <svg viewBox="0 0 100 100">
@@ -67,6 +73,63 @@
             </div>
         </aside>
     </main>
+
+    <!-- ══════════════ ABA: SELEÇÕES ══════════════ -->
+    <div id="tab-selecoes" class="tab-content">
+        <div class="selecoes-header">
+            <h2>Ranking de Seleções</h2>
+            <p class="selecoes-sub">Clique em até 2 seleções para comparar</p>
+        </div>
+        <div class="selecoes-grid" id="selecoes-grid">
+            <div class="loading">Carregando ranking...</div>
+        </div>
+        <div class="compare-bar" id="compare-bar" style="display:none">
+            <div id="compare-sel-labels"></div>
+            <button class="compare-go-btn" id="compare-go-btn">⚖️ Comparar estas seleções</button>
+            <button class="compare-clear-btn" id="compare-clear-btn">✕ Limpar</button>
+        </div>
+    </div>
+
+    <!-- ══════════════ ABA: COMPARAR ══════════════ -->
+    <div id="tab-comparar" class="tab-content">
+        <div class="comparar-tabs">
+            <button class="sub-tab-btn active" data-sub="jogadores">👤 Jogadores</button>
+            <button class="sub-tab-btn" data-sub="selecoes">🌍 Seleções</button>
+        </div>
+
+        <!-- Sub-aba: comparar jogadores -->
+        <div id="sub-jogadores" class="sub-tab active">
+            <div class="compare-inputs">
+                <div class="compare-search-box">
+                    <input type="text" id="search-a" placeholder="Buscar jogador A..." class="search-input">
+                    <div class="search-results" id="results-a"></div>
+                    <div id="card-a" class="compare-card-slot"><span class="slot-hint">Nenhum selecionado</span></div>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="compare-search-box">
+                    <input type="text" id="search-b" placeholder="Buscar jogador B..." class="search-input">
+                    <div class="search-results" id="results-b"></div>
+                    <div id="card-b" class="compare-card-slot"><span class="slot-hint">Nenhum selecionado</span></div>
+                </div>
+            </div>
+            <div id="compare-stats" class="compare-stats" style="display:none"></div>
+        </div>
+
+        <!-- Sub-aba: comparar seleções -->
+        <div id="sub-selecoes" class="sub-tab" style="display:none">
+            <div class="compare-inputs">
+                <div class="compare-search-box">
+                    <select id="sel-a" class="selecao-select full-width"><option value="">Seleção A...</option></select>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="compare-search-box">
+                    <select id="sel-b" class="selecao-select full-width"><option value="">Seleção B...</option></select>
+                </div>
+            </div>
+            <button class="calc-btn" id="btn-comparar-sel" style="max-width:260px;margin:16px auto;display:block">⚡ Comparar</button>
+            <div id="compare-sel-result" class="compare-sel-result" style="display:none"></div>
+        </div>
+    </div>
 
     <script src="/static/script.js"></script>
 </body>

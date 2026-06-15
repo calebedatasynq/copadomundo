@@ -7,6 +7,7 @@ class Jogador(ABC):
         self._nome = nome
         self._idade = idade
         self._nacionalidade = nacionalidade
+        self._id = None
 
     @property
     def nome(self):
@@ -26,6 +27,7 @@ class Jogador(ABC):
 
     def to_dict(self):
         result = {
+            'id': self._id,
             'nome': self.nome,
             'idade': self.idade,
             'nacionalidade': self.nacionalidade,
@@ -152,10 +154,12 @@ class JogadorFactory:
         if posicao not in cls._mapa:
             raise ValueError(f"Posição desconhecida: {posicao}")
         klass, campos = cls._mapa[posicao]
-        return klass(
+        j = klass(
             dados['nome'], dados['idade'], dados['nacionalidade'],
             *[dados[c] for c in campos]
         )
+        j._id = dados.get('id')
+        return j
 
     @classmethod
     def carregar_json(cls, caminho: str) -> list[Jogador]:
