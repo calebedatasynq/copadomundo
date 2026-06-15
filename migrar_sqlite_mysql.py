@@ -38,16 +38,6 @@ def criar_tabelas(cur):
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
     """)
 
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS passagem_clube (
-            jogador_id VARCHAR(20)  NOT NULL,
-            clube_id   VARCHAR(20)  NOT NULL,
-            temporada  VARCHAR(20),
-            PRIMARY KEY (jogador_id, clube_id, temporada),
-            FOREIGN KEY (jogador_id) REFERENCES jogador(id),
-            FOREIGN KEY (clube_id)   REFERENCES clube(id)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-    """)
     print("Tabelas criadas no MySQL.")
 
 
@@ -75,7 +65,6 @@ def main():
 
     print("\nMigrando dados...")
 
-    mysql_cur.execute("DELETE FROM passagem_clube")
     mysql_cur.execute("DELETE FROM jogador")
     mysql_cur.execute("DELETE FROM clube")
     mysql_cur.execute("DELETE FROM selecao")
@@ -105,21 +94,6 @@ def main():
         jogadores
     )
     print(f"  {len(jogadores)} registros inseridos em 'jogador'.")
-    mysql_conn.commit()
-
-    mysql_cur.execute("SELECT id FROM jogador")
-    jogadores_validos = {r[0] for r in mysql_cur.fetchall()}
-
-    sqlite_cur.execute("SELECT jogador_id, clube_id, temporada FROM passagem_clube")
-    passagens = [
-        row for row in sqlite_cur.fetchall()
-        if row[0] in jogadores_validos and row[1] in clubes_validos
-    ]
-    mysql_cur.executemany(
-        "INSERT INTO passagem_clube (jogador_id, clube_id, temporada) VALUES (%s, %s, %s)",
-        passagens
-    )
-    print(f"  {len(passagens)} registros inseridos em 'passagem_clube'.")
     mysql_conn.commit()
 
     sqlite_cur.close()

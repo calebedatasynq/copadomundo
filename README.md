@@ -70,7 +70,6 @@ O banco `copa_card_manager` possui as seguintes tabelas:
 | `jogador` | 1.248 | Jogadores reais com nome, seleção, posição e stats |
 | `selecao` | 48 | Seleções da Copa 2026 |
 | `clube` | 1.569 | Clubes de origem |
-| `passagem_clube` | 14.998 | Histórico de clubes por jogador |
 | `atacante` | 312 | Stats: velocidade, chute, passe, drible, defesa, fisico |
 | `goleiro` | 145 | Stats: elasticidade, manejo, chute, reflexo, posicionamento, velocidade |
 | `zagueiro` | 234 | Stats: marcacao, forca, cabeceio, velocidade, passe |

@@ -164,15 +164,3 @@ def buscar_comparar_selecoes(sel_a: str, sel_b: str) -> dict:
         resultado[sel]['_geral'] = totais[0]['media'] if totais else 0
 
     return resultado
-
-
-def buscar_clubes_jogador(jogador_id: str) -> list[dict]:
-    """Retorna o histórico de clubes de um jogador."""
-    sql = """
-        SELECT c.nome, c.pais, p.temporada
-        FROM passagem_clube p
-        JOIN clube c ON p.clube_id = c.id
-        WHERE p.jogador_id = %s
-        ORDER BY p.temporada
-    """
-    return _query(sql, (jogador_id,))
